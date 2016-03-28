@@ -4,12 +4,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: shell | 长丰破浪</title>
+  <title>Tag: 读书 | 长丰破浪</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="长丰破浪">
-<meta property="og:url" content="http://yangqinlong.github.com/tags/shell/index.html">
+<meta property="og:url" content="http://yangqinlong.github.com/tags/读书/index.html">
 <meta property="og:site_name" content="长丰破浪">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -71,10 +71,10 @@
     <div class="outer">
       <section id="main">
   
-    <article id="post-常用的shell整理" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-拆掉思维里的墙读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/11/02/常用的shell整理/" class="article-date">
-  <time datetime="2014-11-02T13:58:20.000Z" itemprop="datePublished">11月 2 2014</time>
+    <a href="/2016/03/28/拆掉思维里的墙读书笔记/" class="article-date">
+  <time datetime="2016-03-28T15:37:00.000Z" itemprop="datePublished">3月 28 2016</time>
 </a>
     
   </div>
@@ -85,7 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/02/常用的shell整理/">常用的shell整理</a>
+      <a class="article-title" href="/2016/03/28/拆掉思维里的墙读书笔记/">拆掉思维里的墙语录</a>
     </h1>
   
 
@@ -93,79 +93,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在微博上关注了<a href="http://weibo.com/commandlinefu" target="_blank" rel="external">@linux命令行精选网</a> ，每天都会发布<a href="http://commandlinefu.cn/" target="_blank" rel="external">commandlinefu.cn</a> 比较有意思也很常用的shell命令。这里转发我常用到的，学习并整理。</p>
-<h3 id="文本编辑">文本编辑</h3><ol>
-<li><p>sort排序</p>
+        <ul>
+<li>如果我失败了，新来代替我的那个家伙，他会怎么办？ 既然这样，为什么我们不这样去做呢？</li>
+<li><p>乐趣来源于全情投入，而不是投入后的结果，正是因为这样，乐趣可以是无条件的。</p>
+</li>
+<li><p>下面是关于一个好的职业规划的几个建议： </p>
+<blockquote>
 <ol>
-<li><p>读取文件并排序，删除重复的条目，把新的内容输出到新文件里。</p>
-<pre><code><span class="keyword">sort</span> -<span class="keyword">u</span> filename &gt; newfilename 
-</code></pre></li>
+<li>应该有一个20年的梦想，尽可能大一些，尽可能抽象一点。因为你知道20年是很长的时间，可以发生任何事情，这个计划主要以你的梦想为主。 </li>
+<li>给自己一个不超过10年的理想，这个计划主要以培养和发展你的核心竞争力为主。 </li>
+<li>瞄准一个5年内能达到的目标，细分成为3年的职业计划。详细地了解你和这个职位的差距。这个计划以务必达成的执行为主，同时给自己一个PLAN B。 </li>
+<li>把你的规划保留下来，每隔一个月看一看，让自己保持进度。 </li>
+<li>每隔半年停下来回顾你的计划。 </li>
+<li>对新的机会和趋势永远保持警醒。</li>
 </ol>
+</blockquote>
 </li>
-<li><p>awk</p>
-<ol>
-<li>awk ‘!x[$0]++’ <file> 删除重复的行 (不需要排序)</file></li>
-<li>awk ‘{print NR,$0}’ 显示行数<br>这个直接可以wc -l file嘛</li>
-<li>awk ‘sub(“$”, “\r”)’ unixfile.txt &gt; winfile.txt 用 awk实现 unix2dos命令</li>
-</ol>
+<li><p>一件事情的价值，不取决于现在你判断的价值，而取决于在未来情况中的价值，这就叫做未来价值。</p>
 </li>
-<li>sed<ol>
-<li>sed -n ‘1~5{N;N;p}’ file.txt 每5行打印其中3行</li>
-<li>sed -i ‘s/oldname@example.com/newname@example.com/g’ <code>grep oldname@example.com -rl .</code> 多个文件替换邮件地址</li>
-<li>sed -i ‘s/\r//‘ <filename> 转化为unix格式</filename></li>
-</ol>
-</li>
-<li><p>find</p>
-<ol>
-<li>find . -type f -size -80k -delete 查找并删除小于指定大小的文件</li>
-<li>find <path></path> -name “<em>.tgz” -or -name “</em>.tar.gz” | while read file; do echo “$file: “; tar -tzf $file; done 列出所有tar 里边的文件</li>
-<li>find . -type f | sed -n ‘s/..*.//p’ | sort -f | uniq -ic 按扩展名清点文件</li>
-<li>find . -type f -print0 | xargs -0 perl -pi.save -e ‘tr/A-Z/a-z/‘ 递归的转小写</li>
-<li>find . -type f -exec ls -l –full-time {} + | sort -k 6,7 多目录中按日期排序</li>
-<li>find -type f | grep -v “^./.git” | xargs md5sum | md5sum 查找文件并计算md5</li>
-</ol>
-</li>
-<li><p>file and folder</p>
-<ol>
-<li>test -d folder || mkdir folder 没有再建目录</li>
-<li>while true; do du -s <file_or_directory>; sleep <time_interval>; done 监控文件大小</time_interval></file_or_directory></li>
-</ol>
-</li>
-</ol>
-<h3 id="系统">系统</h3><ol>
-<li><p>history保存命令的执行时间， 最好是把它加到.bashrc里</p>
-<pre><code><span class="keyword">export</span> HISTTIMEFORMAT=<span class="string">"%F %T "</span>
-
-yangqinlong@BJ-yangqinlong:~$ history | tail
-<span class="number">2009</span>  <span class="number">2014</span>-<span class="number">11</span>-<span class="number">25</span> <span class="number">22</span>:<span class="number">25</span>:<span class="number">03</span> cd _posts/
-<span class="number">2010</span>  <span class="number">2014</span>-<span class="number">11</span>-<span class="number">25</span> <span class="number">22</span>:<span class="number">25</span>:<span class="number">03</span> ls
-<span class="number">2011</span>  <span class="number">2014</span>-<span class="number">11</span>-<span class="number">25</span> <span class="number">22</span>:<span class="number">25</span>:<span class="number">07</span> pwd
-<span class="number">2012</span>  <span class="number">2014</span>-<span class="number">11</span>-<span class="number">25</span> <span class="number">22</span>:<span class="number">25</span>:<span class="number">37</span> bg <span class="number">1</span>
-<span class="number">2013</span>  <span class="number">2014</span>-<span class="number">11</span>-<span class="number">25</span> <span class="number">22</span>:<span class="number">27</span>:<span class="number">42</span> <span class="keyword">export</span> HISTTIMEFORMAT=<span class="string">"%F %T "</span>
-<span class="number">2014</span>  <span class="number">2014</span>-<span class="number">11</span>-<span class="number">25</span> <span class="number">22</span>:<span class="number">27</span>:<span class="number">46</span> history
-<span class="number">2015</span>  <span class="number">2014</span>-<span class="number">11</span>-<span class="number">25</span> <span class="number">22</span>:<span class="number">29</span>:<span class="number">39</span> ls
-<span class="number">2016</span>  <span class="number">2014</span>-<span class="number">11</span>-<span class="number">25</span> <span class="number">22</span>:<span class="number">29</span>:<span class="number">41</span> history
-<span class="number">2017</span>  <span class="number">2014</span>-<span class="number">11</span>-<span class="number">25</span> <span class="number">22</span>:<span class="number">30</span>:<span class="number">07</span> cd
-<span class="number">2018</span>  <span class="number">2014</span>-<span class="number">11</span>-<span class="number">25</span> <span class="number">22</span>:<span class="number">30</span>:<span class="number">13</span> history | tail
-</code></pre></li>
-<li><p>:!bash 在vi会话中执行bash，可以执行多个命令，而使用!命令的方式来每次只能执行一条命令，输入exit和回车来返回vi</p>
-</li>
-<li>apt-cache rdepends <packagename> 查看包的依赖</packagename></li>
-</ol>
+<li>为什么有的人能力很强，脑子不笨，手脚不慢，但是却一直没有大的发展？因为他们只知道什么是自己不想要的，却没有思考过什么是自己真正想要的。</li>
+<li>IMPOSSIBLE和I’MPOSSIBLE只差一点，那一点就是你心中真正的目标。</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yangqinlong.github.com/2014/11/02/常用的shell整理/" data-id="cimc637gb0006h9s63qi67wle" class="article-share-link">分享到</a>
+        <a data-url="http://yangqinlong.github.com/2016/03/28/拆掉思维里的墙读书笔记/" data-id="cimc637g30003h9s657xbm6z4" class="article-share-link">分享到</a>
       
 
       
-        <a href="http://yangqinlong.github.com/2014/11/02/常用的shell整理/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://yangqinlong.github.com/2016/03/28/拆掉思维里的墙读书笔记/#ds-thread" class="article-comment-link">评论</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书/">读书</a></li></ul>
 
     </footer>
   </div>
