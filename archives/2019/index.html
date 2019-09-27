@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>读书 › 长丰破浪</title>
+  <title>归档：2019 › 长丰破浪</title>
   <meta name="author" content="Yang Qinlong">
   
   
@@ -46,7 +46,7 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title tag">读书</h2>
+<h2 class="archive-title">2019</h2>
 
 
   
@@ -55,35 +55,31 @@
     <header>
       
   
-    <h1 class="title"><a href="/2016/03/28/拆掉思维里的墙读书笔记/">拆掉思维里的墙语录</a></h1>
+    <h1 class="title"><a href="/2019/09/27/Anaconda-Jupyter notebook 如何安装 nbextensions/">Anaconda-Jupyter notebook 如何安装 nbextensions</a></h1>
   
 
       
-        <time datetime="2016-03-28T15:37:00.000Z">Mar 28 2016</time>
+        <time datetime="2019-09-27T04:07:43.000Z">Sep 27 2019</time>
       
     </header>
     <div class="entry">
       
-        <ul>
-<li>如果我失败了，新来代替我的那个家伙，他会怎么办？ 既然这样，为什么我们不这样去做呢？</li>
-<li><p>乐趣来源于全情投入，而不是投入后的结果，正是因为这样，乐趣可以是无条件的。</p>
-</li>
-<li><p>下面是关于一个好的职业规划的几个建议： </p>
-<blockquote>
-<ol>
-<li>应该有一个20年的梦想，尽可能大一些，尽可能抽象一点。因为你知道20年是很长的时间，可以发生任何事情，这个计划主要以你的梦想为主。 </li>
-<li>给自己一个不超过10年的理想，这个计划主要以培养和发展你的核心竞争力为主。 </li>
-<li>瞄准一个5年内能达到的目标，细分成为3年的职业计划。详细地了解你和这个职位的差距。这个计划以务必达成的执行为主，同时给自己一个PLAN B。 </li>
-<li>把你的规划保留下来，每隔一个月看一看，让自己保持进度。 </li>
-<li>每隔半年停下来回顾你的计划。 </li>
-<li>对新的机会和趋势永远保持警醒。</li>
-</ol>
+        <blockquote>
+<p>源自：<a href="https://www.jianshu.com/p/6efc8e412397" target="_blank" rel="external">https://www.jianshu.com/p/6efc8e412397</a></p>
 </blockquote>
+<h3 id="系统环境：macos">系统环境：macos</h3><ul>
+<li><p>Step1：确定是已经安装好anaconda</p>
 </li>
-<li><p>一件事情的价值，不取决于现在你判断的价值，而取决于在未来情况中的价值，这就叫做未来价值。</p>
+<li><p>Step2：要在Mac终端下运行，如何找到终端（启动台-其他-终端）</p>
 </li>
-<li>为什么有的人能力很强，脑子不笨，手脚不慢，但是却一直没有大的发展？因为他们只知道什么是自己不想要的，却没有思考过什么是自己真正想要的。</li>
-<li>IMPOSSIBLE和I’MPOSSIBLE只差一点，那一点就是你心中真正的目标。</li>
+<li><p>Step3：先安装nbextensions依次输入运行下面代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install jupyter_contrib_nbextensions&#10;jupyter contrib nbextension install --user</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step4：再安装nbextensions_configurator,依次输入运行以下代码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install jupyter_nbextensions_configurator&#10;jupyter nbextensions_configurator enable --user</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step5：安装完成后，关终端，启动anaconda中的jupyter notebook,在主页中，可以看见Nbextensions标签页，选中Hinterland 就能使用代码补全了。</p>
+</li>
 </ul>
 
       
